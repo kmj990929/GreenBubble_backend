@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'new_chat',
     'rest_framework',
     'user',
+    'main',
 ]
 
 MIDDLEWARE = [
