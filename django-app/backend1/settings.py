@@ -25,19 +25,32 @@ SECRET_KEY = 't9a5a7hxnx)vbm@q%8(l4pmmq2pps6+hk@b1#+0%en=kf#zu^t'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ec2-13-58-95-124.us-east-2.compute.amazonaws.com']
+ALLOWED_HOSTS = ['ec2-13-58-95-124.us-east-2.compute.amazonaws.com', '172.31.42.168', '13.58.95.124']
 
+ASGI_APPLICATION = 'backend1.routing.application'
+CHANNEL_LAYERS = {
+    'default':{
+        'BACKEND':'channels_redis.core.RedisChannelLayer',
+        'CONFIG':{
+            'hosts':[('ec2-13-58-95-124.us-east-2.compute.amazonaws.com',8080)],
+        },
+    },
+}
 
 # Application definition
 
 INSTALLED_APPS = [
+    'channels',
+    'chat',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'chat',
+    'new_chat',
+    'rest_framework',
+    'user',
 ]
 
 MIDDLEWARE = [
@@ -48,6 +61,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
 ]
 
 ROOT_URLCONF = 'backend1.urls'

@@ -1,0 +1,57 @@
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Boot strap -->
+    <!-- 합쳐지고 최소화된 최신 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+    <style>
+        .content{
+            height: 75%;
+        }
+        .messageDiv{
+            margin-top: 20px;
+            margin-bottom: 50px;
+        }
+        .custom-btn{
+            font-size: 10px;
+        }
+        .panel-footer{
+            height:10%;
+            color:gray;
+        }
+    </style>
+
+    <title>Green Bubble</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="page-header">
+                <h1>
+                    <a href="/" class="btn btn-default btn-xs" style="margin: 10px">메인화면</a>
+                    Green Bubble
+                </h1>
+            </div>
+        </div>
+        <div class="content">
+            <div class="mainDiv">
+                <h3>패스워드 찾기</h3><br>
+                <form action="forgetpw/findpw" method="POST">{% csrf_token %}
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1">이메일</span>
+                        <input type="email" name='inputEmail' class="form-control" placeholder="이메일을 적어주세요." aria-describedby="basic-addon1">
+                    </div><br>
+                    <input type="submit" class="btn btn-success btn-lg" value="입력">
+                </form>
+                <a href="signup">회원가입하기</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
